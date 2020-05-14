@@ -1,0 +1,163 @@
+// rpx单位转换
+@function rpx($value) {
+  @return $value * 1rpx;
+}
+
+//单行文本溢出省略号
+@mixin ell() {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 多行文本溢出省略号
+@mixin multiline ($line-num) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line-num;
+}
+
+// 箭头 方向、大小、颜色
+@mixin arrow ($direction, $size, $color, $top, $right) {
+  @if $direction == top {
+    display :inline-block;
+    position: relative;
+    width: $size;
+    height: $size;
+    &:after {
+      display: inline-block;
+      content: " ";
+      height: $size;
+      width: $size;
+      border-width: 0 1px 1px 0;
+      border-color: $color;
+      border-style: solid;
+      transform-origin: center;
+      transition: transform .3s;
+      position: absolute;
+      top: $top;
+      right: $right;
+      transform: rotate(-135deg);
+    }
+  }
+  @else if $direction == bottom {
+    display :inline-block;
+    position: relative;
+    width: $size;
+    height: $size;
+    &:after {
+      display: inline-block;
+      content: " ";
+      height: $size;
+      width: $size;
+      border-width: 0 1px 1px 0;
+      border-color: $color;
+      border-style: solid;
+      transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+      position: absolute;
+      top: $top;
+      right: $right;
+    }
+  }
+  @else if $direction == right {
+    display :inline-block;
+    position: relative;
+    width: $size;
+    height: $size;
+    &:after {
+      display: inline-block;
+      content: " ";
+      height: $size;
+      width: $size;
+      border-width: 1px 1px 0 0;
+      border-color: $color;
+      border-style: solid;
+      position: absolute;
+      top: $top;
+      right: $right;
+    }
+  }
+  @else if $direction == left {
+    display :inline-block;
+    position: relative;
+    width: $size;
+    height: $size;
+    &:after {
+      display: inline-block;
+      content: " ";
+      height: $size;
+      width: $size;
+      border-width: 1px 1px 0 0;
+      border-color: $color;
+      border-style: solid;
+      transform: rotate(-135deg);
+      position: absolute;
+      top: $top;
+      right: $right;
+    }
+  }
+
+}
+
+// 三角 方向、大小、颜色
+@mixin triangle($direction, $size, $color) {
+  width: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  border-width: $size;
+  cursor: pointer;
+  @if $direction == top {
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent $color transparent;
+    border-top: none;
+  }
+  @else if $direction == bottom {
+    border-style: solid dashed dashed dashed;
+    border-color: $color transparent transparent transparent;
+    border-bottom: none;
+  }
+  @else if $direction == right {
+    border-style: dashed dashed dashed solid;
+    border-color: transparent transparent transparent $color;
+    border-right: none;
+  }
+  @else if $direction == left {
+    border-style: dashed solid dashed dashed;
+    border-color: transparent $color transparent transparent;
+    border-left: none;
+  }
+}
+
+/**
+    元素添加 Retina 屏幕下的1px边框  不带圆角
+    API     $color          --- 边框颜色 默认颜色为#EAEAEA
+            $directions     --- 边框方向 默认四个方向边框都绘制
+
+    例子     左边框 @include one-border(#ffffff,left)
+            右边框 @include one-border(#ffffff,right)
+            上边框 @include one-border(#ffffff,top)
+            下边框 @include one-border(#ffffff,bottom)
+*/
+@mixin one-border ($color:#EAEAEA,$directions:(top,right,bottom,left)) {
+  position: relative;
+  &::after{
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: 0;
+      left: 0;
+      transform: scale(0.49);
+      transform-origin: 0 0;
+      pointer-events: none;
+      box-sizing: border-box;
+      border: 0 solid $color;
+      @each $direction in $directions {
+          border-#{$direction}-width : 1px;
+      }
+  }
+}
