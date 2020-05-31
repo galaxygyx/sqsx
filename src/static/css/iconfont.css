@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 1847310 */
+  src: url('https://at.alicdn.com/t/font_1847310_ci5dh4goli.eot');
+  src: url('https://at.alicdn.com/t/font_1847310_ci5dh4goli.eot?#iefix') format('embedded-opentype'),
+  url('https://at.alicdn.com/t/font_1847310_ci5dh4goli.woff2') format('woff2'),
+  url('https://at.alicdn.com/t/font_1847310_ci5dh4goli.woff') format('woff'),
+  url('https://at.alicdn.com/t/font_1847310_ci5dh4goli.ttf') format('truetype'),
+  url('https://at.alicdn.com/t/font_1847310_ci5dh4goli.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fabu:before {
+  content: "\e6c4";
+}
+
+.icon-leave_message:before {
+  content: "\e630";
+}
+
+.icon-fenxiang:before {
+  content: "\e619";
+}
+
+.icon-comment:before {
+  content: "\e60d";
+}
+
+.icon-home_default:before {
+  content: "\e61f";
+}
+
+.icon-home_actived:before {
+  content: "\e61e";
+}
+
+.icon-my_default:before {
+  content: "\e613";
+}
+
+.icon-my_actived:before {
+  content: "\e608";
+}
+
