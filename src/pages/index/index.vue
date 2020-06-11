@@ -14,7 +14,9 @@
         <h3>选择发布话题</h3>
         <ul>
           <li v-for="item in themeList" :key="item.value">
-            <span class="flag">{{ item.label }}</span>
+            <span class="flag" @click="goEdit(item.value)">
+              {{ item.label }}
+            </span>
           </li>
         </ul>
       </div>
@@ -31,6 +33,7 @@ export default {
   data() {
     return {
       actived: 1,
+      topic: '',
       themeList: [
         { label: '拼车', value: 0 },
         { label: '旅行', value: 1 },
@@ -46,13 +49,31 @@ export default {
     }
   },
   components: { Home, My, uniPopup },
-  onLoad() {},
+  onLoad(option) {
+    console.log(option, 'option')
+    this.topic = option.topic
+  },
   methods: {
     handleClick(index) {
       this.actived = index
     },
     open() {
       this.$refs.popup.open()
+    },
+    goEdit(flag) {
+      console.log(flag, 'flag')
+      uni.navigateTo({
+        url: '/pages/editArtical/index?flag=' + flag,
+        success: () => {
+          console.log(111)
+        },
+        fail: err => {
+          console.log(err, 222)
+        },
+        complete: () => {
+          console.log(333)
+        }
+      })
     }
   }
 }
@@ -123,7 +144,7 @@ export default {
       height: 56rpx;
       line-height: 56rpx;
       margin: 0 auto;
-      padding: 0 44rpx;
+      padding: 10rpx 54rpx;
     }
   }
 }

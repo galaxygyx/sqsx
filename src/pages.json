@@ -3,7 +3,19 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "sqsx"
+        "navigationBarTitleText": "晋社堂"
+      }
+    },
+    {
+      "path": "pages/editArtical/index",
+      "style": {
+        "navigationBarTitleText": "发布"
+      }
+    },
+    {
+      "path": "pages/topic/index",
+      "style": {
+        "navigationBarTitleText": "话题"
       }
     }
   ],

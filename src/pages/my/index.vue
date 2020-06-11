@@ -20,6 +20,29 @@
           <span>我留言的</span>
         </div>
       </div>
+      <div class="content-list">
+        <ul>
+          <li>
+            <span>意见反馈</span>
+            <i class="iconfont icon-you"></i>
+          </li>
+          <li>
+            <span>平台通知</span>
+            <span>
+              <span class="circle">12</span>
+              <i class="iconfont icon-you"></i>
+            </span>
+          </li>
+          <li>
+            <span>分享小程序</span>
+            <i class="iconfont icon-you"></i>
+          </li>
+          <li>
+            <span>设置</span>
+            <i class="iconfont icon-you"></i>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -78,20 +101,45 @@ export default {
     .content-header {
       align-items: center;
       display: flex;
-			justify-content: space-between;
-			.my-box {
-				border: 2px solid #666;
-				border-radius: 8rpx;
-				height: 100rpx;
-				line-height: 94rpx;
-				text-align: center;
-				width: 256rpx;
-				.iconfont {
-					font-size: 48rpx;
-					margin-right: 5rpx;
-					vertical-align: middle;
-				}
-			}
+      justify-content: space-between;
+      .my-box {
+        border: 2px solid #666;
+        border-radius: 8rpx;
+        height: 100rpx;
+        line-height: 94rpx;
+        text-align: center;
+        width: 256rpx;
+        .iconfont {
+          font-size: 48rpx;
+          margin-right: 5rpx;
+          vertical-align: middle;
+        }
+      }
+    }
+    .content-list {
+      margin-top: 50rpx;
+      li {
+        align-items: center;
+        display: flex;
+        font-size: 28rpx;
+        height: 98rpx;
+        justify-content: space-between;
+        span {
+          color: #333;
+          display: flex;
+          justify-content: center;
+          .circle {
+            background-color: #ff0000;
+            border-radius: 50%;
+            color: #fff;
+            display: inline-block;
+            font-size: 20rpx;
+            height: 30rpx;
+            text-align: center;
+            width: 30rpx;
+          }
+        }
+      }
     }
   }
 }

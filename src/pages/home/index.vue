@@ -9,7 +9,7 @@
     >
       <div class="header-box" :class="{ fixed: isFixed }">
         <div class="circle">消息</div>
-        <div class="circle">话题</div>
+        <div class="circle" @click="selectTopic">话题</div>
       </div>
       <div class="square-list" :class="{ fixed: isFixed }">
         <ul>
@@ -114,7 +114,12 @@ export default {
       // console.log(top, e, 'val')
     },
     handleComment(item) {},
-    handleShare(item) {}
+    handleShare(item) {},
+    selectTopic (){
+      uni.navigateTo({
+        url: '/pages/topic/index'
+      })
+    }
   }
 }
 </script>
